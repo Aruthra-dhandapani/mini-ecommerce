@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Fashion Store</title>
+    <script>
+        // JavaScript for the slider
+        let currentSlide = 0;
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        window.onload = () => showSlide(currentSlide);
+    </script>
+</head>
+
+<body style="margin: 0; font-family: Arial, sans-serif;">
+
+    <!-- Navigation Bar -->
+    <div style="background-color: #333; padding: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
+        <a href="products.html" style="color: white; text-decoration: none; margin-right: 20px;">Products</a>
+        <a href="contact.html" style="color: white; text-decoration: none;">Contact</a>
+    </div>
+
+    <!-- Slider Section -->
+    <div style="position: relative; max-width: 100%; overflow: hidden;">
+        <div class="slide" style="display: none; text-align: center;">
+            <img src="https://img.lovepik.com/free-png/20211106/lovepik-fashion-womens-summer-shopping-image-png-image_400331002_wh1200.png"
+                alt="Slide 1" style="width: 10%; height: auto;">
+        </div>
+        <div class="slide" style="display: none; text-align: center;">
+            <img src="https://e7.pngegg.com/pngimages/996/594/png-clipart-museum-of-bags-and-purses-handbag-messenger-bag-fashion-women-s-handbags-zipper-blue-thumbnail.png"
+                alt="Slide 2" style="width: 10%; height: auto;">
+        </div>
+        <div class="slide" style="display: none; text-align: center;">
+            <img src="https://pics.clipartpng.com/Blue_T_Shirt_PNG_Clip_Art-3104.png" alt="Slide 3"
+                style="width: 10%; height: auto;">
+        </div>
+        <button onclick="prevSlide()"
+            style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; padding: 10px;">&#8249;</button>
+        <button onclick="nextSlide()"
+            style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; padding: 10px;">&#8250;</button>
+    </div>
+
+    <!-- Trendy Products Section -->
+    <div style="padding: 20px;">
+        <h2 style="text-align: center;">Trendy Products</h2>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <!-- Product 1 -->
+            <div style="border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center;">
+                <img src="https://png.pngtree.com/png-vector/20231020/ourmid/pngtree-watercolor-fashion-dress-png-image_10291689.png"
+                    alt="Product 1" style="width: 100%; height: auto;">
+                <h4>Stylish Dress</h4>
+                <p>$50</p>
+                <a href="product-details.html"
+                    style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                    Details</a>
+            </div>
+            <!-- Product 2 -->
+            <div style="border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center;">
+                <img src="https://static.vecteezy.com/system/resources/previews/053/368/036/non_2x/simple-white-t-shirt-transparent-for-creative-applications-png.png"
+                    alt="Product 2" style="width: 100%; height: auto;">
+                <h4>Cool T-Shirt</h4>
+                <p>$20</p>
+                <a href="product-details.html"
+                    style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                    Details</a>
+            </div>
+            <!-- Product 3 -->
+            <div style="border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center;">
+                <img src="https://e7.pngegg.com/pngimages/36/519/png-clipart-pink-louis-vuitton-2-way-handbag-handbag-messenger-bag-shoulder-lining-women-s-handbags-zipper-white-thumbnail.png"
+                    alt="Product 3" style="width: 100%; height: auto;">
+                <h4>Elegant Handbag</h4>
+                <p>$75</p>
+                <a href="product-details.html"
+                    style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                    Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #333; padding: 10px; color: white; text-align: center;">
+        <p>&copy; 2025 Fashion Store. All rights reserved.</p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Fashion Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .payment-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .payment-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .payment-container label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .payment-container input,
+        .payment-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .payment-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .payment-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .payment-container .button-gap {
+            margin-top: 10px;
+        }
+
+        .total-amount,
+        .address-container {
+            margin-bottom: 20px;
+        }
+
+        .qr-code {
+            display: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-details {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-container">
+        <h2>Payment Details</h2>
+
+        <!-- Total Amount Section -->
+        <div class="total-amount">
+            <p><strong>Total Amount:</strong> $50</p>
+        </div>
+
+        <!-- Address Section -->
+        <div class="address-container">
+            <label for="address">Shipping Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+        </div>
+
+        <!-- Mode of Payment Section -->
+        <label for="paymentMode">Mode of Payment</label>
+        <select id="paymentMode" name="paymentMode" onchange="togglePaymentMode()" required>
+            <option value="cod">Cash on Delivery</option>
+            <option value="gpay">GPay</option>
+            <option value="card">Credit/Debit Card</option>
+        </select>
+
+        <!-- QR Code for GPay -->
+        <div id="qrCode" class="qr-code">
+            <img src="https://pngimg.com/d/qr_code_PNG33.png" alt="GPay QR Code" style="width: 100%; height: auto;">
+            <p>Scan the QR code to complete payment via GPay.</p>
+        </div>
+
+        <!-- Card Payment Details -->
+        <div id="cardDetails" class="card-details">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" required>
+
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required>
+        </div>
+
+        <!-- Confirm or Cancel Payment Buttons -->
+        <button type="button" onclick="processPayment(true)">Confirm Payment</button>
+        <div class="button-gap">
+            <button type="button" onclick="processPayment(false)">Cancel Payment</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #333; padding: 10px; color: white; text-align: center;">
+        <p>&copy; 2025 Fashion Store. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Toggle Payment Mode (Card, GPay, COD)
+        function togglePaymentMode() {
+            const paymentMode = document.getElementById("paymentMode").value;
+            const cardDetails = document.getElementById("cardDetails");
+            const qrCode = document.getElementById("qrCode");
+
+            // Hide card details and QR code by default
+            cardDetails.style.display = "none";
+            qrCode.style.display = "none";
+
+            // Show payment option based on selected mode
+            if (paymentMode === "card") {
+                cardDetails.style.display = "block";
+            } else if (paymentMode === "gpay") {
+                qrCode.style.display = "block";
+            }
+        }
+
+        // Payment Process Function
+        function processPayment(isConfirmed) {
+            const paymentMode = document.getElementById("paymentMode").value;
+            if (isConfirmed) {
+                if (paymentMode === "gpay") {
+                    alert("Payment via GPay has been successful. Order has been placed.");
+                } else if (paymentMode === "card") {
+                    alert("Card payment successful. Order has been placed.");
+                } else if (paymentMode === "cod") {
+                    alert("Cash on Delivery selected. Order has been placed.");
+                }
+                // Redirect to order confirmation page (or home page)
+                window.location.href = 'index.html';
+            } else {
+                alert("Order has been canceled.");
+                // Redirect to products page
+                window.location.href = 'products.html';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

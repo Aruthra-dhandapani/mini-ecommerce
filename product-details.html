@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Fashion Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .product-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .product-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+
+        .product-info h2 {
+            color: #333;
+        }
+
+        .product-info p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .product-info button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-info button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .mySlides {
+            display: none;
+            text-align: center;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .related-products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .related-product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .related-product img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://static.vecteezy.com/system/resources/previews/034/969/304/non_2x/ai-generated-t-shirt-mockup-clip-art-free-png.png"
+                alt="Dress 1" style="width: 10%; height: auto;">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-t-shirtclothingt-shirtfashion-dress-shirt-cloth-tshirt-631522326894filwv.png"
+                alt="Dress 2" style="width: 10%; height: auto;">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://i.pinimg.com/originals/bd/ef/cb/bdefcbc72735f64db17f3250b1e64245.png" alt="Dress 3"
+                style="width: 10%; height: auto;">
+        </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="product-container">
+        <h2>Stylish Dress</h2>
+        <p>
+            This stylish dress is perfect for any occasion. Made from premium fabric, it combines elegance with comfort.
+            Pair it with your favorite accessories to create a stunning look.
+        </p>
+        <p><strong>Price:</strong> $50</p>
+        <button onclick="addToCart()">Add to Cart</button>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="related-products">
+        <div class="related-product">
+            <img src="https://toppng.com/uploads/preview/blazer-for-men-png-pic-11540026344dgmp5ebzmi.png"
+                alt="Related Dress 1">
+            <h4>Elegant Dress</h4>
+            <p>$45</p>
+            <a href="product-details.html"
+                style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                Details</a>
+        </div>
+        <div class="related-product">
+            <img src="https://toppng.com/uploads/preview/blazer-for-men-11540026321npzajfv0hi.png"
+                alt="Related Dress 2">
+            <h4>Summer Dress</h4>
+            <p>$35</p>
+            <a href="product-details.html"
+                style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                Details</a>
+        </div>
+        <div class="related-product">
+            <img src="https://toppng.com/uploads/preview/blazer-for-men-png-pic-11540026344dgmp5ebzmi.png"
+                alt="Related Dress 3">
+            <h4>Casual Dress</h4>
+            <p>$40</p>
+            <a href="product-details.html"
+                style="background-color: #007BFF; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">View
+                Details</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #333; padding: 10px; color: white; text-align: center;">
+        <p>&copy; 2025 Fashion Store. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Slideshow Functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        // Add to Cart function
+        function addToCart() {
+            alert('The product has been added to your cart.');
+        }
+
+        // Buy Now function
+        function buyNow() {
+            alert('Proceeding to the payment page.');
+            window.location.href = 'payment.html';
+        }
+    </script>
+
+</body>
+
+</html>

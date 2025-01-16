@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fashion Store</title>
+    <style>
+        /* Apply full page background image */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('your-image.jpg');
+            /* Replace 'your-image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Login container styling */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* White background with transparency */
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Section -->
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Register Link -->
+        <div class="register-link">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Fashion Store. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent page reload on form submit
+
+            // Basic login logic (you can enhance with backend validation)
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email === "user@example.com" && password === "password123") {
+                // Simulate successful login
+                alert('Login Successful!');
+
+                // Redirect to the Home page or Product page after successful login
+                window.location.href = "index.html";  // Change to "products.html" if you want to redirect to Products page
+            } else {
+                // Show an error message if credentials are incorrect
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
